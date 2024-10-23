@@ -108,6 +108,12 @@ export default defineConfig( ({command, mode}) => {
           autoprefixer,
         ],
       },
+      preprocessorOptions: {
+        scss: {
+          javascriptEnabled: true,
+          additionalData: '@import "./src/styles/variable.scss";'
+        }
+      }
     },
     resolve: {
       alias: {
