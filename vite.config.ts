@@ -12,6 +12,9 @@ import path from 'path';
 import tailwindcss from 'tailwindcss';
 import autoprefixer from 'autoprefixer';
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
+import importToCDN from 'vite-plugin-cdn-import';
+import viteCompression from 'vite-plugin-compression';
+
 
 
 // https://vite.dev/config/
@@ -26,13 +29,31 @@ export default defineConfig( ({command, mode}) => {
   return {
     plugins: [
       vue(),
-      visualizer(),
+      visualizer({
+        open: true,
+      }),
+      viteCompression(),
       createSvgIconsPlugin({
         // Specify the icon folder to be cached
         iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
         // Specify symbolId format
         symbolId: 'icon-[dir]-[name]',
       }),
+      importToCDN({
+        modules: [
+		      {
+		        name:"vue",
+		        var:"Vue",
+		        path:"https://unpkg.com/vue@3.2.31"
+		      },
+		      {
+		        name:"element-plus",
+		        var:"ElementPlus",
+		        path:"https://unpkg.com/element-plus@2.1.9",
+		        css:"https://unpkg.com/element-plus/dist/index.css"
+		      }
+		    ], // 配置cdn引入
+      })
     ],
     base: './', // 设置打包路径
     mode: mode, // production || development 用于开发的时候使用某个环境的配置，默认development
