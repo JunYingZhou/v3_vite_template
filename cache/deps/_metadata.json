@@ -1,49 +1,76 @@
 {
-  "hash": "f8ddc0a0",
+  "hash": "e07851f4",
   "configHash": "20156ffb",
-  "lockfileHash": "9a82797a",
-  "browserHash": "c42f2efe",
+  "lockfileHash": "b6d6e374",
+  "browserHash": "0907dfd2",
   "optimized": {
-    "element-plus": {
-      "src": "../../node_modules/element-plus/es/index.mjs",
-      "file": "element-plus.js",
-      "fileHash": "617a7907",
+    "ant-design-vue": {
+      "src": "../../node_modules/ant-design-vue/es/index.js",
+      "file": "ant-design-vue.js",
+      "fileHash": "28095ccb",
       "needsInterop": false
     },
-    "element-plus/dist/locale/zh-cn.mjs": {
-      "src": "../../node_modules/element-plus/dist/locale/zh-cn.mjs",
-      "file": "element-plus_dist_locale_zh-cn__mjs.js",
-      "fileHash": "252edf89",
+    "ant-design-vue/es/locale/zh_CN": {
+      "src": "../../node_modules/ant-design-vue/es/locale/zh_CN.js",
+      "file": "ant-design-vue_es_locale_zh_CN.js",
+      "fileHash": "5a877ce6",
       "needsInterop": false
     },
     "pinia": {
       "src": "../../node_modules/pinia/dist/pinia.mjs",
       "file": "pinia.js",
-      "fileHash": "6d9fa471",
+      "fileHash": "df630e38",
       "needsInterop": false
     },
     "vue": {
       "src": "../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "adc1da2a",
+      "fileHash": "199240df",
       "needsInterop": false
     },
     "vue-router": {
       "src": "../../node_modules/vue-router/dist/vue-router.mjs",
       "file": "vue-router.js",
-      "fileHash": "c25ff634",
+      "fileHash": "be59434b",
+      "needsInterop": false
+    },
+    "element-plus": {
+      "src": "../../node_modules/element-plus/es/index.mjs",
+      "file": "element-plus.js",
+      "fileHash": "97b6c29f",
+      "needsInterop": false
+    },
+    "element-plus/dist/locale/zh-cn.mjs": {
+      "src": "../../node_modules/element-plus/dist/locale/zh-cn.mjs",
+      "file": "element-plus_dist_locale_zh-cn__mjs.js",
+      "fileHash": "333d5a99",
+      "needsInterop": false
+    },
+    "element-plus/es/locales.mjs": {
+      "src": "../../node_modules/element-plus/es/locales.mjs",
+      "file": "element-plus_es_locales__mjs.js",
+      "fileHash": "1d09a2d0",
       "needsInterop": false
     }
   },
   "chunks": {
+    "chunk-UK3IK3B2": {
+      "file": "chunk-UK3IK3B2.js"
+    },
     "chunk-AYVSL3LM": {
       "file": "chunk-AYVSL3LM.js"
+    },
+    "chunk-4A5AQTQZ": {
+      "file": "chunk-4A5AQTQZ.js"
     },
     "chunk-TSGWPBQW": {
       "file": "chunk-TSGWPBQW.js"
     },
-    "chunk-5WRI5ZAA": {
-      "file": "chunk-5WRI5ZAA.js"
+    "chunk-HVP7MD6E": {
+      "file": "chunk-HVP7MD6E.js"
+    },
+    "chunk-G3PMV62Z": {
+      "file": "chunk-G3PMV62Z.js"
     }
   }
 }

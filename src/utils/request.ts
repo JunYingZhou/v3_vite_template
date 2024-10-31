@@ -1,5 +1,6 @@
 import axios from "axios";
 import { ElMessage } from "element-plus";
+import { getAccessToken } from "./accessToken";
 
 // 创建axios对象
 let request = axios.create({
@@ -11,6 +12,9 @@ let request = axios.create({
 request.interceptors.request.use((req) => {
   // 在发送请求之前做些什么
   // 比如添加token
+  if (getAccessToken()) {
+    req.headers["Authorization"] = `Bearer ${getAccessToken()}`;
+  }
   return req;
 });
 

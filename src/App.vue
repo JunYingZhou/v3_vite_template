@@ -1,11 +1,12 @@
 <template>
-  <div>
-    <router-view></router-view>
-  </div>
+  <!--主题-->
+  <a-config-provider :locale="zhCN">
+    <div id="app">
+      <router-view />
+    </div>
+  </a-config-provider>
 </template>
 
-<script setup lang="ts">
-
+<script lang="ts" setup>
+import zhCN from "ant-design-vue/es/locale/zh_CN";
 </script>
-
-<style scoped lang="scss"></style>

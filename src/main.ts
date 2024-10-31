@@ -7,6 +7,10 @@ import { createPinia } from 'pinia'
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import 'virtual:svg-icons-register'
 
+// ant-design-vue
+import Antd from "ant-design-vue";
+import "ant-design-vue/dist/reset.css";
+
 import App from './App.vue'
 import router from './router'
 
@@ -14,7 +18,9 @@ const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
-app.use(ElementPlus, {
-  locale: zhCn,
-})
+// app.use(ElementPlus, {
+//   locale: zhCn,
+// })
+app.use(Antd);
+
 app.mount('#app')

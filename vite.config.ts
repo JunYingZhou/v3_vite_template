@@ -14,6 +14,7 @@ import autoprefixer from 'autoprefixer';
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import importToCDN from 'vite-plugin-cdn-import';
 import viteCompression from 'vite-plugin-compression';
+import { en } from 'element-plus/es/locales.mjs';
 
 
 
@@ -26,11 +27,16 @@ export default defineConfig( ({command, mode}) => {
   const { VITE_APP_BASE_API, VITE_CSS_PREFIX, VITE_PHONE, VITE_APP_TITLE } = env;
   const outDir = `./dist/${VITE_APP_TITLE}`; // 设置打包和预览目录
 
+  console.log('命令: ', command);
+  console.log('环境: ', mode);
+  console.log('环境变量: ', env);
+
   return {
     plugins: [
       vue(),
       visualizer({
         open: true,
+        gzipSize: true, // 是否统计gzip大小
       }),
       viteCompression(),
       createSvgIconsPlugin({
@@ -51,7 +57,7 @@ export default defineConfig( ({command, mode}) => {
 		        var:"ElementPlus",
 		        path:"https://unpkg.com/element-plus@2.1.9",
 		        css:"https://unpkg.com/element-plus/dist/index.css"
-		      }
+		      },
 		    ], // 配置cdn引入
       })
     ],
@@ -80,9 +86,24 @@ export default defineConfig( ({command, mode}) => {
       rollupOptions: {
         plugins: [visualizer()],
         output: {
+          experimentalMinChunkSize: 200 * 1024, // 设置打包时最小打包体积
           chunkFileNames: 'assets/js/[name]-[hash].js', // 设置打包时js文件名
           entryFileNames: 'assets/js/[name]-[hash].js', // 设置打包时入口文件名
           assetFileNames: 'assets/[ext]/[name]-[hash].[ext]', // 设置打包时静态资源文件名
+          compact: true, // 设置打包时是否压缩
+          manualChunks(id: string) { // 设置打包时拆分文件
+            if (id.includes("@ant-design")) {
+              return "@ant-design";
+            }
+
+            if (id.includes("ant-design-vue")) {
+              return "ant-design-vue";
+            }
+
+            if (id.includes("@vue")) {
+              return "@vue";
+            }
+          },
         },
       },
       chunkSizeWarningLimit: 1500, // 打包时超过1500kb的提示

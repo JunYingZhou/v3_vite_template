@@ -1,26 +1,5 @@
 
 <template>
-    <div class="layout_container">
-        <!-- 左侧滑动栏 -->
-        <div class="layout_slider">
-            <Logo></Logo>
-        <!-- 滚动组件 -->
-        <el-scrollbar class="scrollbar">
-            <!-- 菜单组件-->
-            <p v-for="item in [1, 2, 3]" :key="item">滚动组件</p>
-            <el-menu
-            :collapse="true"
-            :default-active="$route.path"
-            background-color="#001529"
-            text-color="white"
-            active-text-color="yellowgreen"
-            >
-            <!--根据路由动态生成菜单-->
-            <!-- <Menu :menuList="userStore.menuRoutes"></Menu> -->
-            </el-menu>
-        </el-scrollbar>
-        </div>
-    </div>
 </template>
 
 <script setup lang="ts">
